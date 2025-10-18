@@ -342,6 +342,7 @@
     <string name="keyStoreKeyPassword">Password Chiave</string>
     <string name="filterList">Lista di Filtri</string>
     <string name="autoscrollList">Lista di Scorrimento Automatico</string>
+    <string name="clearLog">Pulisci Log</string>
     <string name="requestTimeout">Timeout Richiesta (MS)</string>
     <string name="allowMicrophonePermission">consenti il permesso del microfono</string>
     <string name="textAsrTimeoutText">Timeout Speech To Text (MS)</string>

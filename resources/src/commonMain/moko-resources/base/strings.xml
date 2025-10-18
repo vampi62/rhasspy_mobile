@@ -324,6 +324,7 @@
     <string name="keyStoreKeyPassword">Key Password</string>
     <string name="filterList">filter List</string>
     <string name="autoscrollList">autoscroll List</string>
+    <string name="clearLog">clear Log</string>
     <string name="requestTimeout">request Timeout (MS)</string>
     <string name="allowMicrophonePermission">allow microphone permission</string>
     <string name="textAsrTimeoutText">Speech To Text Timeout (MS)</string>
