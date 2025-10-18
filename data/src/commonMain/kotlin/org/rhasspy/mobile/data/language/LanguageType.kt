@@ -9,7 +9,9 @@ enum class LanguageType(override val text: StableStringResource, val code: Strin
     IOption<LanguageType> {
 
     English(MR.strings.en.stable, "en"),
-    German(MR.strings.de.stable, "de");
+    German(MR.strings.de.stable, "de"),
+    Italian(MR.strings.it.stable, "it"),
+    French(MR.strings.fr.stable, "fr");
 
     override fun findValue(value: String): LanguageType {
         return valueOf(value)

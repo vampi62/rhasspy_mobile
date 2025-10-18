@@ -66,6 +66,7 @@
     <string name="de">Deutsch</string>
     <string name="en">English</string>
     <string name="it">Italiano</string>
+    <string name="fr">Français</string>
     <string name="automaticSilenceDetection">Rilevamento Automatico del Silenzio</string>
     <string name="backgroundWakeWordDetection">Rilevamento Parola di Risveglio in Background
     </string>
