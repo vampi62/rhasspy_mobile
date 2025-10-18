@@ -129,12 +129,13 @@ private fun LogScreenContent(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val lazyListState = rememberForeverLazyListState(LogScreenList)
+    val reversedLogList = logList.reversed()
 
     if (isLogAutoscroll) {
         LaunchedEffect(logList.size) {
             coroutineScope.launch {
-                if (logList.isNotEmpty()) {
-                    lazyListState.animateScrollToItem(logList.size - 1)
+                if (reversedLogList.isNotEmpty()) {
+                    lazyListState.animateScrollToItem(0)
                 }
             }
         }
@@ -151,7 +152,7 @@ private fun LogScreenContent(
         state = lazyListState,
         modifier = Modifier.fillMaxHeight()
     ) {
-        items(logList) { item ->
+        items(reversedLogList) { item ->
             LogListElement(item)
             CustomDivider()
         }
