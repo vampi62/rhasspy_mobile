@@ -44,7 +44,7 @@ jobs:
     needs: check
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
       # setup jdk 22
@@ -83,7 +83,7 @@ jobs:
     runs-on: self-hosted
     needs: uiTest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
       # setup jdk 22
@@ -144,7 +144,7 @@ jobs:
         env:
           BUILD_TOOLS_VERSION: "35.0.0"
       # upload apks to action
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: Artifact of signed apks
           path: |
