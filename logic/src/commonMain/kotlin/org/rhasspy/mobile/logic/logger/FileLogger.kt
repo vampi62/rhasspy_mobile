@@ -21,6 +21,7 @@ import okio.buffer
 import org.rhasspy.mobile.data.log.LogElement
 import org.rhasspy.mobile.platformspecific.application.NativeApplication
 import org.rhasspy.mobile.platformspecific.extensions.commonDecodeLogList
+import org.rhasspy.mobile.platformspecific.extensions.commonDelete
 import org.rhasspy.mobile.platformspecific.extensions.commonInternalPath
 import org.rhasspy.mobile.platformspecific.extensions.commonReadWrite
 import org.rhasspy.mobile.platformspecific.extensions.commonSave
@@ -36,6 +37,7 @@ interface IFileLogger {
     val flow: Flow<LogElement>
 
     fun getLines(): ImmutableList<LogElement>
+    fun clearLogFile()
     fun shareLogFile(): Boolean
     suspend fun saveLogFile(): Boolean
 
@@ -49,7 +51,7 @@ internal class FileLogger(
 
     //create new file when logfile is 2 MB
     private val file = Path.commonInternalPath(nativeApplication, "logfile.json")
-    private val fileHandle = file.commonReadWrite()
+    private var fileHandle = file.commonReadWrite()
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
     private val _flow = MutableSharedFlow<LogElement>()
@@ -86,6 +88,19 @@ internal class FileLogger(
         } catch (exception: Exception) {
             logger.e(exception) { "could not read log file" }
             persistentListOf()
+        }
+    }
+
+    /**
+    * clear the log file
+    */
+    override fun clearLogFile() {
+        try {
+            file.commonDelete()
+            fileHandle = file.commonReadWrite()
+            logger.i { "Log file cleared and recreated" }
+        } catch (exception: Exception) {
+            logger.e(exception) { "could not clear log file" }
         }
     }
 

@@ -333,6 +333,7 @@
     <string name="keyStoreKeyPassword">Key-Passwort</string>
     <string name="filterList">Liste filtern</string>
     <string name="autoscrollList">Liste automatisch scrollen</string>
+    <string name="clearLog">Protokoll löschen</string>
     <string name="requestTimeout">Anfrage-Timeout (MS)</string>
     <string name="allowMicrophonePermission">Mikrofonzugriff erlauben</string>
     <string name="textAsrTimeoutText">Sprache-zu-Text-Timeout (MS)</string>

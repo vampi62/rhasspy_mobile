@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.LowPriority
 import androidx.compose.material.icons.filled.PlaylistRemove
 import androidx.compose.material.icons.filled.Save
@@ -43,6 +44,7 @@ import org.rhasspy.mobile.ui.utils.ListType.LogScreenList
 import org.rhasspy.mobile.ui.utils.rememberForeverLazyListState
 import org.rhasspy.mobile.viewmodel.navigation.NavigationDestination.MainScreenNavigationDestination.LogScreen
 import org.rhasspy.mobile.viewmodel.screens.log.LogScreenUiEvent
+import org.rhasspy.mobile.viewmodel.screens.log.LogScreenUiEvent.Action.ClearLog
 import org.rhasspy.mobile.viewmodel.screens.log.LogScreenUiEvent.Action.SaveLogFile
 import org.rhasspy.mobile.viewmodel.screens.log.LogScreenUiEvent.Action.ShareLogFile
 import org.rhasspy.mobile.viewmodel.screens.log.LogScreenUiEvent.Change.ManualListScroll
@@ -170,6 +172,13 @@ private fun LogScreenActions(
         modifier = Modifier.padding(start = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+        IconButton(onClick = { onEvent(LogScreenUiEvent.Action.ClearLog) }) {
+            Icon(
+                imageVector = Icons.Filled.Delete,
+                contentDescription = MR.strings.clearLog.stable
+            )
+        }
+
         IconButton(onClick = { onEvent(ToggleListAutoScroll) }) {
             Icon(
                 imageVector = if (isLogAutoscroll) Icons.Filled.LowPriority else Icons.Filled.PlaylistRemove,

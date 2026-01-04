@@ -1,6 +1,7 @@
 package org.rhasspy.mobile.viewmodel.screens.log
 
 import androidx.compose.runtime.Stable
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -13,6 +14,7 @@ import org.rhasspy.mobile.resources.MR
 import org.rhasspy.mobile.settings.AppSetting
 import org.rhasspy.mobile.viewmodel.screen.ScreenViewModel
 import org.rhasspy.mobile.viewmodel.screens.log.LogScreenUiEvent.Action
+import org.rhasspy.mobile.viewmodel.screens.log.LogScreenUiEvent.Action.ClearLog
 import org.rhasspy.mobile.viewmodel.screens.log.LogScreenUiEvent.Action.SaveLogFile
 import org.rhasspy.mobile.viewmodel.screens.log.LogScreenUiEvent.Action.ShareLogFile
 import org.rhasspy.mobile.viewmodel.screens.log.LogScreenUiEvent.Change
@@ -51,6 +53,16 @@ class LogScreenViewModel(
 
     private fun onAction(action: Action) {
         when (action) {
+            ClearLog -> {
+                viewModelScope.launch(dispatcher.IO) {
+                    fileLogger.clearLogFile()
+                    // Update the viewState to reflect cleared logs
+                    _viewState.update {
+                        it.copy(logList = persistentListOf())
+                    }
+                }
+            }
+
             SaveLogFile -> {
                 viewModelScope.launch(dispatcher.IO) {
                     if (!fileLogger.saveLogFile()) {

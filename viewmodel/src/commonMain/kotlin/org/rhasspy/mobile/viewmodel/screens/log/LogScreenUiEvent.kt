@@ -12,6 +12,7 @@ sealed interface LogScreenUiEvent {
 
     sealed interface Action : LogScreenUiEvent {
 
+        data object ClearLog : Action
         data object ShareLogFile : Action
         data object SaveLogFile : Action
 
