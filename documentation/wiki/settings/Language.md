@@ -4,3 +4,5 @@ Language of the UI, can also be set in the system app settings.
 |---------|
 | English |
 | German  |
+| Italian |
+| French  |

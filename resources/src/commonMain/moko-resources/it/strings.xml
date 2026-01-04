@@ -66,6 +66,7 @@
     <string name="de">Deutsch</string>
     <string name="en">English</string>
     <string name="it">Italiano</string>
+    <string name="fr">Français</string>
     <string name="automaticSilenceDetection">Rilevamento Automatico del Silenzio</string>
     <string name="backgroundWakeWordDetection">Rilevamento Parola di Risveglio in Background
     </string>
@@ -422,11 +423,6 @@
     <string name="subscribe_failed">sottoscrizione fallita</string>
     <string name="topic_subscription_failed">sottoscrizione argomento fallita</string>
     <!-- audioRecorder -->
-    <string name="source_type_default">Predefinito</string>
-    <string name="source_type_mic">Microfono</string>
-    <string name="source_type_unprocessed">Non elaborato</string>
-    <string name="source_type_voice_communication">Comunicazione Vocale</string>
-    <string name="source_type_voice_recognition">Riconoscimento Vocale</string>
     <string name="channel_type_default">Predefinito</string>
     <string name="channel_type_mono">Mono</string>
     <string name="channel_type_stereo">Stereo</string>

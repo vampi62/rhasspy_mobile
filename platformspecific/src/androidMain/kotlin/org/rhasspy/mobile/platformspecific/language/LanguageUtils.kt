@@ -11,9 +11,11 @@ import org.rhasspy.mobile.data.language.LanguageType
 internal actual class LanguageUtils : ILanguageUtils {
 
     actual override fun getDeviceLanguage(): LanguageType {
-        return when (LocaleListCompat.getDefault().getFirstMatch(arrayOf("en", "de"))?.language) {
+        return when (LocaleListCompat.getDefault().getFirstMatch(arrayOf("en", "de", "it", "fr"))?.language) {
             "en" -> LanguageType.English
             "de" -> LanguageType.German
+            "it" -> LanguageType.Italian
+            "fr" -> LanguageType.French
             else -> LanguageType.English
         }
     }
@@ -29,10 +31,12 @@ internal actual class LanguageUtils : ILanguageUtils {
     }
 
     actual override fun getSystemAppLanguage(): LanguageType? {
-        return AppCompatDelegate.getApplicationLocales().getFirstMatch(arrayOf("en", "de")).let {
+        return AppCompatDelegate.getApplicationLocales().getFirstMatch(arrayOf("en", "de", "it", "fr")).let {
             when (it?.language) {
                 "en" -> LanguageType.English
                 "de" -> LanguageType.German
+                "it" -> LanguageType.Italian
+                "fr" -> LanguageType.French
                 else -> null
             }
         }

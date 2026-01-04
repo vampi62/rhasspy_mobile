@@ -13,6 +13,8 @@ internal actual class LanguageUtils : ILanguageUtils {
         return when (NSLocale.preferredLanguages.firstOrNull()) {
             "en" -> LanguageType.English
             "de" -> LanguageType.German
+            "it" -> LanguageType.Italian
+            "fr" -> LanguageType.French
             else -> LanguageType.English
         }
     }
@@ -31,6 +33,8 @@ internal actual class LanguageUtils : ILanguageUtils {
         return when (NSBundle.mainBundle.preferredLocalizations.firstOrNull()) {
             "en" -> LanguageType.English
             "de" -> LanguageType.German
+            "it" -> LanguageType.Italian
+            "fr" -> LanguageType.French
             else -> LanguageType.English
         }
     }
